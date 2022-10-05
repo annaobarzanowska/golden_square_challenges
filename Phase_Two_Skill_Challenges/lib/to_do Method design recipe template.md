@@ -3,16 +3,16 @@
 
 As a user
 So that I can keep track of my tasks
-I want to check if a text includes the string #TODO.
+I want to check if a text includes the string #TODO.    
 
 2. Design the Method Signature
 
 Include the name of the method, its parameters, return value, and side effects.
-```ruby 
+
+```ruby
+
 to_do(text)
-return whether text includes string /#TODO/
-
-
+return whether text includes /#TODO/
 ```
 text is a string with words
 
@@ -20,24 +20,21 @@ text is a string with words
 
 Make a list of examples of what the method will take and return.
 
-```ruby
+#1
+# to_do("")
+# => "No to-do items"
 
-# 1
-to_do("")
-fail 'No text added'
+#2
+# to_do("this is a string with a #TODO item")
+# => "This includes a to-do item"
 
-# 2
-to_do("this is a string with #TODO in it')
-# => 'There's a to-do item here'
+#3
+# to_do("#TODO")
+# => "No to-do items"
 
-# 3
-to_do('this is just a string')
-# => 'There's no to-do item here'
-
-#4 
-to_do("#TODO")
-# => 'This is an empty to-do item'
-```
+#4
+# to_do("this is just a plain string")
+# => "No to-do items"
 
 4. Implement the Behaviour
 
