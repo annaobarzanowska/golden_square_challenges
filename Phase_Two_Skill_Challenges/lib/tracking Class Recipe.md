@@ -1,7 +1,14 @@
 {{PROBLEM}} Class Design Recipe
 1. Describe the Problem
 
-Put or write the user story here. Add any clarifying notes you might have.
+As a user
+So that I can keep track of my tasks
+I want a program that I can add todo tasks to and see a list of them.
+
+As a user
+So that I can focus on tasks to complete
+I want to mark tasks as complete and have them disappear from the list.
+
 2. Design the Class Interface
 
 Include the initializer and public methods with all parameters and return values.
@@ -9,19 +16,26 @@ Include the initializer and public methods with all parameters and return values
 # EXAMPLE
 
 ```ruby
-class Reminder
-  def initialize(name) # name is a string
+class ToDoList
+  def initialize
     # ...
   end
 
-  def remind_me_to(task) # task is a string
-    # No return value
+  def add_task(task) # task is a string
+    # return nothing
   end
 
-  def remind()
-    # Throws an exception if no task is set
-    # Otherwise, returns a string reminding the user to do the task
+  def list_tasks
+    # returns list of tasks as a string
   end
+
+  def completed_tasks(task) # task is a string
+    # returns nothing
+    # fails if doesn't exist
+    # delete completed task from list_tasks
+
+  end
+
 end
 ```
 
@@ -33,18 +47,26 @@ Make a list of examples of how the class will behave in different situations.
 
 ```ruby
 # 1
-reminder = Reminder("Kay")
-reminder.remind_me_to("Walk the dog")
-reminder.remind() # => "Walk the dog, Kay!"
+new_task = ToDoList.new
+new_task.add_task('do dishes') => 'do dishes'
 
 # 2
-reminder = Reminder("Kay")
-reminder.remind() # fails with "No task set."
+list = ToDoList.new
+list.add_task('do dishes')
+list.add_task('pet dog')
+list.list_tasks => ['do dishes', 'pet dog']
 
 # 3
-reminder = Reminder("Kay")
-reminder.remind_me_to("")
-reminder.remind() # => ", Kay!"
+completed = ToDoList.new
+completed.add_task('do dishes')
+completed.add_task('pet dog')
+completed.completed_tasks('pet dog') => ['do dishes']
+
+# 4
+completed = ToDoList.new
+completed.add_task('do dishes')
+completed.add_task('pet dog')
+completed.completed_tasks('take out rubbish') => fail
 ```
 
 Encode each example as a test. You can add to the above list as you go.

@@ -1,3 +1,4 @@
+=begin
 require "diary"
 
 RSpec.describe DiaryEntry do
@@ -56,3 +57,4 @@ RSpec.describe DiaryEntry do
         expect(chunk).to eq 'a string'
     end
 end
+=end
